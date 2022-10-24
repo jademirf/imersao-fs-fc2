@@ -2,12 +2,13 @@ package main
 
 import (
 	// route "github.com/jademirf/imersao-fs-fc2/simulator/app/route"
-	ckafka "github.com/confluentinc/confluent-kafka-go/kafka"
-	"github.com/jademirf/imersao-fs-fc2/simulator/infra/kafka"
-	kafka2 "github.com/jademirf/imersao-fs-fc2/simulator/kafka"
 	"fmt"
-	"github.com/joho/godotenv"
 	"log"
+
+	ckafka "github.com/confluentinc/confluent-kafka-go/kafka"
+	kafka2 "github.com/jademirf/imersao-fs-fc2/simulator/app/kafka"
+	"github.com/jademirf/imersao-fs-fc2/simulator/infra/kafka"
+	"github.com/joho/godotenv"
 )
 
 func init() {
@@ -27,7 +28,6 @@ func main() {
 		fmt.Println(string(msg.Value))
 		go kafka2.Produce(msg)
 	}
-
 
 	// producer := kafka.NewKafkaProducer()
 	// kafka.Publish("Hi", "readtest", producer)
